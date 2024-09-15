@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify, session
-from backend.models.users import User
-from backend import db
+from models.users import User
+from models import db
 
 import os
 import pathlib
@@ -37,7 +37,7 @@ def login_view():
     if not email or not password:
         return jsonify({'error': 'All fields are required'}), 400
 
-    user = User.query.filter_by(email=email).first()
+    user = db.filter_one("User", email=email)
     if user and user.check_password(password):
         print(session)
 
@@ -95,6 +95,8 @@ flow = Flow.from_client_secrets_file(
     redirect_uri="http://127.0.0.1:5000/callback"
 )   
 
+
+
 @login.route('/oauth-login', methods=['POST','GET'])
 def oauth_login():
     '''Initiate Google OAuth login'''
@@ -129,12 +131,11 @@ def callback():
     session["picture"] = id_info.get("picture")
 
     # Check if user exists in your database
-    user = User.query.filter_by(email=id_info.get("email")).first()
+    user = db.filter_one("User", email=id_info.get("email"))
     if not user:
         # Create a new user in the database
         new_user = User(fname=id_info.get("name"), email=id_info.get("email"), password="")
-        db.session.add(new_user)
-        db.session.commit()
+        new_user.save()
         session['user_id'] = new_user.id
     else:
         session['user_id'] = user.id
