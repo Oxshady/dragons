@@ -21,25 +21,36 @@ function Header() {
                             </button>
                         </div>
                         <Link to='/'>
-                        <li className="home">
-                            <a href="">home</a>
-                        </li>
+                            <li className="home">
+                                <a href="">home</a>
+                            </li>
                         </Link>
-                        <Link to='/'>
-                        <li>
-                            <a href="">movie</a>
-                        </li>
+                        
+        
+
+                        <Link to='/want_to_watch'>
+                            <li>
+                                <a href="">Want to watch </a>
+                            </li>
                         </Link>
-                        <li>
-                            <a href="">tv show</a>
-                        </li>
-                        <li>
-                            <a href="">web series</a>
-                        </li>
-                        <li>
-                            <a href="">pricing</a>
-                        </li>
-                        <button className="btn">SIGN IN</button>
+                        <Link to='/watched_before'>
+                            <li>
+                                <a href="">WatchList</a>
+                            </li>
+                        </Link>
+                        <Link to='/favorite_movies'>
+                            <li>
+                                <a href="">Favourites</a>
+                            </li>
+                        </Link>
+                        <Link to="/survay">
+                            <li>
+                                <a href="">survey</a>
+                            </li>
+                        </Link>
+                        <Link to='/login'>
+                            <button className="btn">SIGN IN</button>
+                        </Link>
                     </ul>
                     <div className="hamburger">
                         <div className="line" />
