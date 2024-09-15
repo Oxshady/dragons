@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../css/Survey.css";
+import "./css/Survey.css";
 import { Link } from "react-router-dom";
 function Survey () {
   const [currentQuestion, setCurrentQuestion] = useState(0);
