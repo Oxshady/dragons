@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify
-from backend import db
-from backend.models.users import User
+from models import db
+from models.users import User
 
 register = Blueprint('register', __name__)
 
@@ -30,13 +30,8 @@ def register_view():
     if not fname or not email or not password:
         return jsonify({'error': 'All fields are required'}), 400
 
-    if User.query.filter_by(email=email).first():
-        return jsonify({'error': 'Email already registered'}), 400
-    
     new_user = User(fname=fname, email=email, password=password)
-    db.session.add(new_user)
-    db.session.commit()
+    new_user.save()
 
     response = jsonify({'message': 'Registration successful! You can now log in.'})
-    # response.headers.add('Access-Control-Allow-Origin', '*')
     return response, 201

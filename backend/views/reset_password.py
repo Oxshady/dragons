@@ -1,8 +1,8 @@
 import bcrypt
 from flask import Blueprint, request, jsonify
 from flask_mail import Message
-from backend.models.users import User
-from backend import db, mail
+from models.users import User
+from models import db, mail
 
 
 reset = Blueprint('reset', __name__)
@@ -106,7 +106,7 @@ def reset_password_token(token):
 
         hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
         user.password = hashed_password
-        db.session.commit()
+        db.save()
         return jsonify({'message': 'Your password has been updated! You can now log in'}), 200
 
     except Exception as e:
