@@ -23,17 +23,20 @@ def register_view():
             - **400 Bad Request**: If any field is missing or the email is already registered.
     '''
     data = request.get_json()
-    fname = data.get('name')
+    first_name = data.get('first_name')
+    last_name = data.get('last_name')
+    phoneNumber = data.get('phoneNumber')
+    address = data.get('address')
     email = data.get('email')
     password = data.get('password')
     
-    if not fname or not email or not password:
+    if not first_name or not last_name or not phoneNumber or not address or not email or not password:
         return jsonify({'error': 'All fields are required'}), 400
 
     if User.query.filter_by(email=email).first():
         return jsonify({'error': 'Email already registered'}), 400
     
-    new_user = User(fname=fname, email=email, password=password)
+    new_user = User(fname=first_name, last_name=last_name, phoneNumber=phoneNumber, address=address,email=email, password=password)
     db.session.add(new_user)
     db.session.commit()
 
