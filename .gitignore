@@ -1,0 +1,15 @@
+# Backend
+__pycache__/
+*.pyc
+flask_session/
+
+# Frontend
+node_modules/
+.vite/
+
+# VS Code
+.vscode/*
+
+# Logs
+logs
+*.log
