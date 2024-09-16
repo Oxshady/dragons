@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify, session
+from flask import request, jsonify, session
 from api.v1.views import api_v1
 from models.users import User
 

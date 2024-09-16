@@ -1,5 +1,5 @@
 import bcrypt
-from flask import Blueprint, request, jsonify
+from flask import request, jsonify
 from flask_mail import Message
 from api.v1.views import api_v1
 from models.users import User

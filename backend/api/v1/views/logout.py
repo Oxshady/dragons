@@ -1,4 +1,4 @@
-from flask import Blueprint, session, jsonify
+from flask import session, jsonify
 from api.v1.views import api_v1
 @api_v1.route('/logout', methods=['POST', 'GET'])
 def logout_view():
