@@ -8,10 +8,9 @@ import os
 from dotenv import load_dotenv
 from datetime import timedelta
 from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
-
-# Load environment variables from the .env file
+from models import mail
+from models import session
 load_dotenv()
 if __name__ == '__main__':
 	app = Flask(__name__)
@@ -20,7 +19,6 @@ if __name__ == '__main__':
 	app.config['SESSION_TYPE'] = os.getenv('SESSION_TYPE')
 	app.config['SESSION_COOKIE_SAMESITE'] = os.getenv('SESSION_COOKIE_SAMESITE')
 	app.config['SESSION_COOKIE_SECURE'] = os.getenv('SESSION_COOKIE_SECURE')
-	app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('SQLALCHEMY_DATABASE_URI')
 	app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(seconds=int(os.getenv('PSLT')))
 	app.config['MAIL_SERVER'] = os.getenv('MAIL_SERVER')
 	app.config['MAIL_PORT'] = int(os.getenv('MAIL_PORT'))
