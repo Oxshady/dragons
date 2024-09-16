@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify, session
 from models import db
-from models.favourite import Favourite
+from favourite import Favourite
 
 favourite = Blueprint('favourite', __name__)
 
