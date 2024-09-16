@@ -33,7 +33,7 @@ def register_view():
     if not first_name or not last_name or not phoneNumber or not address or not email or not password:
         return jsonify({'error': 'All fields are required'}), 400
 
-    if db.filter_one(email=email):
+    if db.filter_one("User",email=email):
         return jsonify({'error': 'Email already registered'}), 400
     new_user = User(first_name=first_name, last_name=last_name,email=email, password=password, phoneNumber=phoneNumber, address=address)
     new_user.save()
