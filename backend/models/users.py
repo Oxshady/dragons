@@ -17,6 +17,8 @@ class User(BaseModel, base):
     address: Mapped["str"] = mapped_column(String(100), nullable=False)
     email: Mapped["str"] = mapped_column(String(60), nullable=False)
     password: Mapped["str"] = mapped_column(String(60), nullable=False)
+    from models.favorite import Favorite
+    favorites: Mapped[List[Favorite]] = relationship("Favorite", backref='user', cascade='all, delete-orphan')
     def __init__(self, *args, **kwargs) -> None:
         """Initialize a new User object"""
         super().__init__(*args, **kwargs)
@@ -31,16 +33,6 @@ class User(BaseModel, base):
         passwd = hashpw(password.encode('utf-8'), salt)
         return passwd.decode('utf-8')
 
-    def to_dict(self):
-        """Convert User object to dictionary"""
-        return {
-            "id": self.id,
-            "first_name": self.first_name,
-            "last_name": self.last_name,
-            "phoneNumber": self.phoneNumber,
-            "address": self.address,
-            "email": self.email,
-        }
 
     def check_password(self, password: str) -> bool:
         """Check password"""
