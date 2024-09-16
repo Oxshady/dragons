@@ -66,6 +66,7 @@ def ai_model(questions_answers):
     )
     if len(history) > 10:
         history.pop(0)
+    print(response)
     return response
 
 
