@@ -3,6 +3,8 @@ from api.v1.views import api_v1
 import requests
 import json
 from os import getenv
+from dotenv import load_dotenv
+load_dotenv()
 import time
 
 
@@ -22,7 +24,11 @@ def get_movies(page):
         "Authorization": f"Bearer {token}"
     }
     response = requests.get(url, headers=headers)
-    results = response.json().get('results')
+    results = response.json().get('results', [])
+
+    if not results:
+        return jsonify({"error": "No results found"}), 404
+    
     for result in results:
         img = "https://image.tmdb.org/t/p/original/{}".format(result.get('poster_path'))
         data.append({

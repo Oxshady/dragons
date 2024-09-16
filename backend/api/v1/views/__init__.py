@@ -10,3 +10,4 @@ from api.v1.views.reset_password import *
 from api.v1.views.profile import *
 from api.v1.views.smart_recommend import *
 from api.v1.views.home_populate import *
+from api.v1.views.id_recommend import *
