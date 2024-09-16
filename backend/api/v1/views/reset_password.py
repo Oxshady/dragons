@@ -98,9 +98,10 @@ def reset_password_token(token):
     try:
         data = request.get_json()
         password = data.get('password')
-        user = User.verify_reset_token(token)
-
-        if not user:
+        email = data.get('email')
+        user = db.filter_one("User", email=email)
+        us = user.verify_reset_token(token)
+        if not us:
             return jsonify({'error': 'Invalid or expired token!'}), 400
 
         hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
