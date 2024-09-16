@@ -87,7 +87,7 @@ def check_session():
 #todo login by google
 
 GOOGLE_CLIENT_ID = "492815053989-css65qnm2e4r9k4ek3s3qndl2fk15r3t.apps.googleusercontent.com"
-client_secrets_file = os.path.join(pathlib.Path(__file__).parent, "../client_secret.json")
+client_secrets_file = os.path.join(pathlib.Path(__file__).parent, "../.client_secret.json")
 
 flow = Flow.from_client_secrets_file(
     client_secrets_file=client_secrets_file,
