@@ -81,4 +81,4 @@ class User(BaseModel, base):
             print('Token expired or invalid')
             return None
 
-        return db.session.get(User, user_id)
+        return db.get("User", user_id)
