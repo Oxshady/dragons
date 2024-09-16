@@ -74,8 +74,8 @@ This project is an intelligent **Movie Recommendation System** that leverages Op
   3. Movie recommendations are fetched from MovieDB and displayed.
 
 ## Authors
-- **Shadi Mahmoud** - Backend Developer - [GitHub Profile](https://github.com/ShadiMahmoud)
-- **Youssef Ahmed** - Backend Developer - [GitHub Profile](https://github.com/YoussefAhmed)
-- **Karem Hany** - Backend Developer - [GitHub Profile](https://github.com/KaremHany)
-- **Sondoss Esslam** - Frontend Developer - [GitHub Profile](https://github.com/SondossEsslam)
+- **Shadi Mahmoud** - Backend Developer - [GitHub Profile](https://github.com/Oxshady)
+- **Youssef Ahmed** - Backend Developer - [GitHub Profile](https://github.com/youssef3092004)
+- **Karem Hany** - Backend Developer - [GitHub Profile](https://github.com/K-a-r-e-e-m)
+- **Sondoss Essam** - Frontend Developer - [GitHub Profile](https://github.com/sondosEssam)
 - **Sayed Abdelaal** - Frontend Developer - [GitHub Profile](https://github.com/sayedabdelal)
