@@ -6,8 +6,6 @@ from models.users import User
 from models import db, mail
 
 
-reset = Blueprint('reset', __name__)
-
 @api_v1.route('/reset_password_request', methods=['GET', 'POST'])
 def reset_password_request():
     '''Request a password reset token.
