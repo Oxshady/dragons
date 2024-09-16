@@ -1,10 +1,9 @@
 from flask import Blueprint, request, jsonify, session
 from models import db
+from api.v1.views import api_v1
 from favourite import Favourite
 
-favourite = Blueprint('favourite', __name__)
-
-@favourite.route('/favourite', methods='[GET]')
+@api_v1.route('/favourite', methods='[GET]')
 def get_favourite():
     '''Get all favourites for the current user.
 
@@ -19,13 +18,13 @@ def get_favourite():
     '''
     if 'user_id' in session:
         user_id = session['user_id']
-        favourites = Favourite.query.filter_by(user_id=user_id).all()
+        favourites = db.filter_group("Favourite", user_id=user_id)
         return jsonify([fav.to_dict() for fav in favourites]), 200
     else:
         return jsonify({'error': 'You are not logged in'}), 401
 
 
-@favourite.route('/favourite', methods='[POST]')
+@api_v1.route('/favourite', methods='[POST]')
 def add_favourite():
     '''Add a new favourite movie.
 
@@ -52,17 +51,16 @@ def add_favourite():
     if not movie_id:
         return jsonify({'error': 'movie ID is required'}), 400
 
-    if Favourite.query.filter_by(user_id=user_id, movie_id=movie_id).first():
+    if db.filter_one("Favourite", user_id=user_id, movie_id=movie_id):
         return jsonify({'error': 'movie already in favourites'}), 400
 
     new_favourite = Favourite(user_id=user_id, movie_id=movie_id)
-    db.session.add(new_favourite)
-    db.session.commit()
+    new_favourite.save()
 
     return jsonify({'message': 'movie added to favourites'}), 201
 
 
-favourite.route('/favourite', methods='[DELETE]')
+api_v1.route('/favourite', methods='[DELETE]')
 def delete_favourite():
     '''Delete a favourite movie.
 
@@ -88,10 +86,9 @@ def delete_favourite():
     movie_id = data.get('movie_id')
     if not movie_id:
         return jsonify({'error': 'movie ID is required'}), 400
-    favourite = Favourite.query.fillter_by(user_i=user_id, movie_id=movie_id).first()
+    favourite = db.filter_one("Favourite", user_id=user_id, movie_id=movie_id)
     if not favourite:
         return jsonify({'error': 'movie not in favourites'}), 400
-    db.session.delete(favourite)
-    db.session.commit()
+    favourite.delete()
     return jsonify({'message': 'movie removed from favourites'}), 200
 
