@@ -2,9 +2,7 @@ from flask import jsonify, request
 from api.v1.views import api_v1
 import requests
 import json
-from dotenv import load_dotenv
 from os import getenv
-load_dotenv()
 history = []
 movies_watched = ["Inception", "The Matrix", "Mad Max: Fury Road", "John Wick", "The Dark Knight"]
 def ai_model(movies_watched):

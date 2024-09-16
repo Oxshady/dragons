@@ -74,6 +74,7 @@ def ai_model(questions_answers):
 
 
 
+
 def movies(recommendations):
     data = []
     token = getenv("MOVIE_DB_ACCESS_TOKEN")
