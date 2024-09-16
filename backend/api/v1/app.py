@@ -10,11 +10,6 @@ from datetime import timedelta
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
-from flask_session import Session
-from flask_mail import Mail
-
-session = Session()
-mail = Mail()
 
 # Load environment variables from the .env file
 load_dotenv()
