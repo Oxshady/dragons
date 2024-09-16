@@ -5,7 +5,7 @@ from models.watched_before import WatchedBefore
 from models import db
 
 @api_v1.route('/watchbefore', methods=['POST', 'GET'])
-def watchlist():
+def watchbefore():
     if request.method == 'GET':
         user_id = request.args.get('user_id')
         watchbefore = db.filter_group("WatchedBefore", user_id=user_id)
