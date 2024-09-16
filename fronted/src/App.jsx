@@ -31,14 +31,14 @@ const router = createBrowserRouter([
         element: <HomePage />,
       },
       {
-        path: "/movie-detail/:movieId",  
+        path: "/movie-detail/:movieId",
         id: "movie-detail",
         element: <MovieDetailPage />,
         // loader: BookLoader
       },
       {
-        path:"survay",
-        element: <Survey/>
+        path: "survay",
+        element: <Survey />,
       },
       {
         path: "want_to_watch",
@@ -52,17 +52,16 @@ const router = createBrowserRouter([
         path: "favorite_movies",
         element: <Favorite_movies />,
       },
-    ]
+    ],
   },
   {
     path: "login",
-    element: <LoginPage />  
+    element: <LoginPage />,
   },
   {
     path: "register",
-    element: <SingupPage />
-  }
-
+    element: <SingupPage />,
+  },
 ]);
 function App() {
   
