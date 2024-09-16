@@ -3,6 +3,8 @@ from api.v1.views import api_v1
 import requests
 import json
 from os import getenv
+from dotenv import load_dotenv
+load_dotenv()
 history = []
 questions_answers ={
 "What is your preferred movie genre?":"Action",

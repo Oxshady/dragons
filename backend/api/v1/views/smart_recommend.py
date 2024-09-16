@@ -3,6 +3,8 @@ from api.v1.views import api_v1
 import requests
 import json
 from os import getenv
+from dotenv import load_dotenv
+load_dotenv()
 history = []
 movies_watched = ["Inception", "The Matrix", "Mad Max: Fury Road", "John Wick", "The Dark Knight"]
 def ai_model(movies_watched):
