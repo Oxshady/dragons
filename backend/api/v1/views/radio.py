@@ -1,4 +1,5 @@
 from flask import jsonify, request
+from api.v1.views import api_v1
 import requests
 import json
 history = []
@@ -52,7 +53,7 @@ def ai_model(questions_answers):
     {
         "role": "user",
         "parts": [
-        questions_answers,
+        json.dumps(questions_answers),
         ],
     }
     )
@@ -60,7 +61,7 @@ def ai_model(questions_answers):
     {
         "role": "model",
         "parts": [
-        response,
+        json.dumps(response),
         ],
     }
     )
@@ -88,14 +89,13 @@ def movies(recommendations):
 
 
 
-
-def films(q):
-    data = q
+@api_v1.route('/films', methods=['GET'])
+def films():
+    data = questions_answers
     if data is None:
         return jsonify({'error': 'No data provided'}), 400
     resp = ai_model(data)
     rec = movies(resp)
-    return rec
+    return jsonify(rec), 200
     
     
-print(films(questions_answers))
