@@ -13,7 +13,7 @@ function Details() {
     const fetchMovieDetails = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5000/movies?movieid=${movieId}`
+          `http://localhost:5000/api/v1/movies?movieid=${movieId}`
         );
         if (!response.ok) throw new Error('Failed to fetch movie details');
         const data = await response.json();

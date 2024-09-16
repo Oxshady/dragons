@@ -37,9 +37,9 @@ def recommend_by_id(movie_id):
     return data
 
 
-@api_v1.route('/movies/id-recommend', methods=['POST'], strict_slashes=False)
+@api_v1.route('/movies', methods=['GET'], strict_slashes=False)
 def id_recommend():
-    movie_id = request.json.get('movie_id')
+    movie_id = request.args.get('movieid')
     if not movie_id:
         return jsonify({'error': 'No movie ID provided'}), 400
 

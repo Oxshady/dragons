@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 const Recommendation = (props) => {
-  const api_url = "http://localhost:5000/movies?movieid=";
+  const api_url = "http://localhost:5000/api/v1/movies?movieid=";
   const {movieId} = props;
   const [recommendations, setRecommendations] = useState([]);
   useEffect(() => {
@@ -17,9 +17,10 @@ const Recommendation = (props) => {
       <div className="series-card">
         <ul className="wrapper">
           {recommendations.map((movie) => (
+            console.log(movie.movieid),
             <li key={movie.movieid} className="card">
               <div className="img">
-                <Link to={`/${movie.id}`}>
+                <Link to={`/${movieId}`}>
                   <img src={movie.img} alt={movie.title} />
                 </Link>
               </div>
