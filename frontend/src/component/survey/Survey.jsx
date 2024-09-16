@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import "./css/Survey.css";
 import { Link } from "react-router-dom";
+import SurveyRecommendation from "./SurveyRecommendation";
 function Survey () {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [recommendations, setRecommendations] = useState([]);
   const surveyContent = [
     {
       questionText: "What is your preferred movie genre?",
@@ -58,7 +60,7 @@ function Survey () {
       ],
     },
   ];
-const survey_url = "http://localhost:5000/survey";
+  const survey_url = "http://localhost:5000/api/v1/films";
   const handleAnswerOptionClick = (answer) => {
     setAnswers({
       ...answers,
@@ -86,22 +88,23 @@ const survey_url = "http://localhost:5000/survey";
   const handleSubmit = () => {
     console.log(answers);
      setIsSubmitted(true);
-    const response = fetch(survey_url, {
+    fetch(survey_url, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(answers),})
+      body: JSON.stringify(answers),}).then((res) => res.json()).then((data) => setRecommendations(data));
   }
+  console.log("------------------------------");
+  console.log(recommendations);
+  console.log("------------------------------");
   return (
     <div className="survey-container">
       {isSubmitted ? (
         <div className="submission-message">
           <h1>All is done</h1>
           <p>Go to see your recommendations</p>
-          <Link to="/survey_recommendation">
-            <button className="see-recommendations">Go</button>
-          </Link>
+          <SurveyRecommendation elements={recommendations}/>
         </div>
       ) : (
         <div className="survey-card">

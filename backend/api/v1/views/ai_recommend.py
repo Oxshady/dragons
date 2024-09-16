@@ -6,14 +6,6 @@ from os import getenv
 from dotenv import load_dotenv
 load_dotenv()
 history = []
-questions_answers ={
-"What is your preferred movie genre?":"Action",
-"In which language do you prefer watching movies?":"English",
-"What time period of movies do you enjoy the most?":"2020s",
-"What kind of movie pace do you prefer?":"Fast-paced and action-packed",
-"What is your favorite type of storytelling?":"Character-driven",
-"What type of movie endings do you prefer?":"open endings"
-}
 
 def ai_model(questions_answers):
     """
@@ -92,13 +84,11 @@ def movies(recommendations):
 
 
 
-@api_v1.route('/films', methods=['GET'], strict_slashes=False)
+@api_v1.route('/films', methods=['POST'], strict_slashes=False)
 def films():
-    data = questions_answers
+    data = request.get_json()
     if data is None:
         return jsonify({'error': 'No data provided'}), 400
     resp = ai_model(data)
     rec = movies(resp)
     return jsonify(rec), 200
-    
-    

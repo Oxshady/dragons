@@ -70,8 +70,11 @@ function Login() {
 
         if (isAdmin || isAuth) {
             mutateLogout.mutate();
+            console.log('********************************');
         } else {
             loginMutation.mutate(data);
+            console.log('----------------------------------');
+
         }
     }
 

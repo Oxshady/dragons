@@ -2,16 +2,16 @@ import { QueryClient } from '@tanstack/react-query';
 
 export const queryClient = new QueryClient();
 
-export async function NewUser({ name, email, password }) {
+export async function NewUser({ first_name, last_name, phoneNumber, address,email, password }) {
 
   
   try {
-    const response = await fetch('http://127.0.0.1:5000/register', {
+    const response = await fetch('http://127.0.0.1:5000/api/v1/register', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ name, email, password }),
+      body: JSON.stringify({ first_name, last_name,phoneNumber, address, email, password }),
       credentials: 'include'  // Ensure cookies are included in requests
     });
      
@@ -29,12 +29,11 @@ export async function NewUser({ name, email, password }) {
     throw error;
   }
 }
- 
 
 export async function fetchUsers(data, dispatch) {
   
     try {
-      const response = await fetch('http://127.0.0.1:5000/login', {
+      const response = await fetch('http://127.0.0.1:5000/api/v1/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -68,7 +67,7 @@ export async function fetchUsers(data, dispatch) {
 }
 
   export async function logoutUser() {
-    const response = await fetch('http://127.0.0.1:5000/logout', {
+    const response = await fetch('http://127.0.0.1:5000/api/v1/logout', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

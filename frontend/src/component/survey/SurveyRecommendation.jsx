@@ -1,19 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Movie from"../Movie.jsx"
-function SurveyRecommendation() {
-  const api_url = "http://localhost:5000/movies";
-  const [movies, setMovies] = useState([]);
 
-  useEffect(() => {
-    fetch(api_url)
-      .then((res) => res.json())
-      .then((data) => setMovies(data));
-  }, []);
-
-  useEffect(() => {
-    console.log(movies);
-  }, [movies]);
-
+function SurveyRecommendation(props ) {
+  const movies = props.elements;
+  console.log("************************");
+  console.log(props);
+  console.log("**************************");
   return (
     <section className="top-movie same">
       <div className="header">
