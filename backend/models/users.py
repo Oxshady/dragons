@@ -18,7 +18,11 @@ class User(BaseModel, base):
     email: Mapped["str"] = mapped_column(String(60), nullable=False)
     password: Mapped["str"] = mapped_column(String(60), nullable=False)
     from models.favorite import Favorite
-    favorites: Mapped[List[Favorite]] = relationship("Favorite", backref='user', cascade='all, delete-orphan')
+    favorites: Mapped[List[WatchList]] = relationship("WatchList", backref='user', cascade='all, delete-orphan')
+    from models.watch_list import WatchList
+    watch_list: Mapped[List[WatchList]] = relationship("WatchList", backref='user', cascade='all, delete-orphan')
+    from models.watched_before import WatchedBefore
+    watch_before: Mapped[List[WatchedBefore]] = relationship("WatchedBefore", backref='user', cascade='all, delete-orphan')
     def __init__(self, *args, **kwargs) -> None:
         """Initialize a new User object"""
         super().__init__(*args, **kwargs)
