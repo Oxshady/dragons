@@ -1,9 +1,15 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, scoped_session
 from models.base_model import base
+from models.watch_list import WatchList
+from models.watched_before import WatchedBefore
+from models.favorite import Favorite
 from models.users import User
 mapp = {
     "User": User,
+    "WatchList": WatchList,
+    "WatchedBefore": WatchedBefore,
+    "Favorite": Favorite
 }
 
 class DBstorage:
