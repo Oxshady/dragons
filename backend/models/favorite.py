@@ -7,10 +7,10 @@ from time import time
 import jwt
 from flask import current_app
 from models import db
-class User(BaseModel, base):
-    """User class"""
+class Favorite(BaseModel, base):
+    """Favorite class"""
 
-    __tablename__ = "users"
+    __tablename__ = "faavorites"
     movie_id: Mapped[int] = mapped_column(Integer, nullable=False)
     rate: Mapped["int"] = mapped_column(Integer, nullable=False)
     language: Mapped["str"] = mapped_column(String(30), nullable=False)
