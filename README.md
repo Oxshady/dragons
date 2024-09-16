@@ -1,12 +1,5 @@
 # Movie Recommendation System
 
-## Authors
-- **Shadi Mahmoud** - Backend Developer - [GitHub Profile](https://github.com/Oxshady)
-- **Youssef Ahmed** - Backend Developer - [GitHub Profile](https://github.com/youssef3092004)
-- **Karem Hany** - Backend Developer - [GitHub Profile](https://github.com/K-a-r-e-e-m)
-- **Sondoss Essam** - Frontend Developer - [GitHub Profile](https://github.com/sondosEssam)
-- **Sayed Abdelaal** - Frontend Developer - [GitHub Profile](https://github.com/sayedabdelal)
-
 ## Overview
 This project is a movie recommendation system that leverages the OpenAI ChatGPT API to parse user preferences and the MovieDB API to fetch movie details. The backend is built using Flask, and the frontend is developed with modern web technologies.
 
@@ -100,3 +93,10 @@ Contributions are welcome! Please read the [contributing guidelines](CONTRIBUTIN
 
 ## License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+
+## Authors
+- **Shadi Mahmoud** - Backend Developer - [GitHub Profile](https://github.com/Oxshady)
+- **Youssef Ahmed** - Backend Developer - [GitHub Profile](https://github.com/youssef3092004)
+- **Karem Hany** - Backend Developer - [GitHub Profile](https://github.com/K-a-r-e-e-m)
+- **Sondoss Essam** - Frontend Developer - [GitHub Profile](https://github.com/sondosEssam)
+- **Sayed Abdelaal** - Frontend Developer - [GitHub Profile](https://github.com/sayedabdelal)
