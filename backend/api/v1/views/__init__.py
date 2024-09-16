@@ -14,3 +14,4 @@ from api.v1.views.id_recommend import *
 from api.v1.views.watch_list import *
 from api.v1.views.favorite import *
 from api.v1.views.watched_before import *
+from api.v1.views.movie_details import *
