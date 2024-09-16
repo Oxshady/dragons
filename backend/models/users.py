@@ -74,7 +74,6 @@ class User(BaseModel, base):
             )
             user_id = decoded_data['user_id']
             expiration = decoded_data['expire']
-
             if expiration < time():
                 print('Token expired')
                 return None
@@ -82,5 +81,4 @@ class User(BaseModel, base):
         except Exception:
             print('Token expired or invalid')
             return None
-
-        return db.get("User", user_id)
+        return True
