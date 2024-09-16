@@ -2,9 +2,7 @@ from flask import jsonify, request
 from api.v1.views import api_v1
 import requests
 import json
-from dotenv import load_dotenv
 from os import getenv
-load_dotenv()
 history = []
 questions_answers ={
 "What is your preferred movie genre?":"Action",

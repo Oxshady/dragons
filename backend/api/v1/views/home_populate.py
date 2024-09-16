@@ -2,19 +2,16 @@ from flask import jsonify, request
 from api.v1.views import api_v1
 import requests
 import json
-from dotenv import load_dotenv
 from os import getenv
 import time
 
-load_dotenv()
 
-# Simple in-memory cache
 cache = {
     "timestamp": None,
-    "data": {}  # Holds the data for different pages
+    "data": {}
 }
 
-CACHE_TIMEOUT = 3600  # 1 hour in seconds
+CACHE_TIMEOUT = 3600
 
 def get_movies(page):
     data = []
@@ -51,18 +48,14 @@ def home_movies():
     print(f"page is {page}")
     limit = 20
 
-    # Check if cache is still valid
     if cache["timestamp"] and current_time - cache["timestamp"] < CACHE_TIMEOUT:
-        # Return cached data for the requested page if it exists
         if page in cache["data"]:
             start_index = (page - 1) * limit
             end_index = start_index + limit
             return jsonify(cache["data"][page][start_index:end_index])
 
-    # Fetch new data from MovieDB API
     movies = get_movies(page)
 
-    # Update the cache
     if not cache["timestamp"] or current_time - cache["timestamp"] >= CACHE_TIMEOUT:
         cache["data"] = {}
         cache["timestamp"] = current_time
