@@ -19,6 +19,6 @@ def watchbefore():
         rate = data.get('rate')
         language = data.get('language')
         popularity = data.get('popularity')
-        watchbefore = Wbefore(movie_id=movie_id, rate=rate, language=language, popularity=popularity, user=user)
+        watchbefore = WatchedBefore(movie_id=movie_id, rate=rate, language=language, popularity=popularity, user=user)
         watchbefore.save()
         return jsonify({'message': 'Movie added to watchbefore'}), 200

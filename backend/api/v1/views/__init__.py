@@ -11,6 +11,6 @@ from api.v1.views.profile import *
 from api.v1.views.smart_recommend import *
 from api.v1.views.home_populate import *
 from api.v1.views.id_recommend import *
-from views.watch_list import *
-from views.favorite import *
-from views.watched_before import *
+from api.v1.views.watch_list import *
+from api.v1.views.favorite import *
+from api.v1.views.watched_before import *
