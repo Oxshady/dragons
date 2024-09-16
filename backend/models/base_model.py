@@ -24,13 +24,13 @@ class BaseModel:
 
     def save(self):
         """ Save the current instance to the database """
-        from models import storage
-        storage.post(self)
+        from models import db
+        db.post(self)
 
     def delete(self):
         """ Delete the current instance from the database """
-        from models import storage
-        storage.delete(self)
+        from models import db
+        db.delete(self)
 
     def to_dict(self):
         """returns a dictionary containing all keys/values of the instance"""
