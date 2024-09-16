@@ -4,7 +4,7 @@ import Recommendation from './Recommendation';
 
 function Details() {
   const { movieId } = useParams(); // Get the movieId from the URL
-  const [movie, setMovie] = useState(null);
+  const [movie, setMovie] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
