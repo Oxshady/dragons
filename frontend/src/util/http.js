@@ -20,9 +20,9 @@ export async function NewUser({ first_name, last_name, phoneNumber, address,emai
       const responseData = await response.json();
       throw new Error(responseData.error || 'Unknown error');
     }
-
-    const data = await response.json();
     
+    const data = await response.json();
+    console.log("signup data",data);
     return data;
   } catch (error) {
     console.error('Error creating user:', error);
@@ -49,12 +49,13 @@ export async function fetchUsers(data, dispatch) {
        
       
       const responseData = await response.json();
+      console.log('login responese', responseData)
       
       // Store user_id in local storage
       if (responseData.user_id) {
        
-        // localStorage.setItem('user_id', responseData.user_id);
-        dispatch(setUserId(responseData.user_id));
+        localStorage.setItem('user_id', responseData.user_id);
+        // dispatch(setUserId(responseData.user_id));
       }
       
       // Return the relevant data (excluding user_id if needed)
@@ -74,8 +75,8 @@ export async function fetchUsers(data, dispatch) {
       },
       credentials: 'include', // Ensure cookies are sent with the request
     });
-   
-  
+    
+    console.log('logout response',response)
     if (!response.ok) {
       throw new Error('Logout failed');
     }
