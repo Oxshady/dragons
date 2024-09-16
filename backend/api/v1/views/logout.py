@@ -14,7 +14,6 @@ def logout_view():
             - **401 Unauthorized**: If no user is logged in.
     '''
     print(f"Session before logout: {session}")
-
     if 'user_id' in session:
         session.pop('user_id', None)
         print(f"Session after logout: {session}")
