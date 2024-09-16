@@ -34,6 +34,7 @@ This project is an intelligent **Movie Recommendation System** that combines the
 - **Shadi Mahmoud** - Backend Developer - [GitHub Profile](https://github.com/ShadiMahmoud)
 - **Sondoss Esslam** - Frontend Developer - [GitHub Profile](https://github.com/SondossEsslam)
 - **Sayed Abdelaal** - Frontend Developer - [GitHub Profile](https://github.com/sayedabdelal)
+- **Ahmed Khaled** - Backend Developer - [GitHub Profile](https://github.com/ah0048)
 
 
 ### Setup Instructions
