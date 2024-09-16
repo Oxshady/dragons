@@ -8,4 +8,3 @@ from api.v1.views.register import *
 from api.v1.views.logout import *
 from api.v1.views.reset_password import *
 from api.v1.views.profile import *
-f
