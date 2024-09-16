@@ -14,9 +14,7 @@ questions_answers ={
 
 def ai_model(questions_answers):
     """
-    Install the Google AI Python SDK
-
-    $ pip install google-generativeai
+    ai model
     """
 
     import google.generativeai as genai
