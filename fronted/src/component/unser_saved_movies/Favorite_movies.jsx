@@ -1,4 +1,5 @@
 function Favorite_movies(){
+    
     return (
         <div>
         <h1>Favorite Movies</h1>
