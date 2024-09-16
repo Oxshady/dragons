@@ -13,3 +13,4 @@ node_modules/
 # Logs
 logs
 *.log
+backend/api/v1/.client_secret.json
