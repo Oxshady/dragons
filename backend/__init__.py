@@ -7,7 +7,6 @@ from flask_cors import CORS
 from flask_session import Session
 from flask_mail import Mail
 
-db = SQLAlchemy()
 session = Session()
 mail = Mail()
 
@@ -31,7 +30,6 @@ def create_app():
     app.config['MAIL_DEFAULT_SENDER'] = os.getenv('MAIL_DEFAULT_SENDER')
     os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"  #! Allow HTTP requests, not HTTPS
 
-    db.init_app(app)
     session.init_app(app)
     mail.init_app(app)
 
@@ -44,8 +42,5 @@ def create_app():
     app.register_blueprint(register_blueprint, url_prefix='/')
     app.register_blueprint(logout_blueprint, url_prefix='/')
     app.register_blueprint(reset_blueprint, url_prefix='/')
-
-    with app.app_context():
-        db.create_all()
         
     return app
