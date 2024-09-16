@@ -2,18 +2,17 @@ import os
 from dotenv import load_dotenv
 from datetime import timedelta
 from flask import Flask
+from api.v1.views import api_v1
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 from flask_session import Session
 from flask_mail import Mail
-
 session = Session()
 mail = Mail()
 
-# Load environment variables from the .env file
 load_dotenv()
 
-def create_app():
+if __name__ == '__main__':
     app = Flask(__name__)
     CORS(app, supports_credentials=True, resources={r"/*": {"origins": "*"}})
     app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
@@ -32,15 +31,5 @@ def create_app():
 
     session.init_app(app)
     mail.init_app(app)
-
-    from .views.login import login as login_blueprint
-    from .views.register import register as register_blueprint
-    from .views.logout import logout as logout_blueprint
-    from .views.reset_password import reset as reset_blueprint
-
-    app.register_blueprint(login_blueprint, url_prefix='/')
-    app.register_blueprint(register_blueprint, url_prefix='/')
-    app.register_blueprint(logout_blueprint, url_prefix='/')
-    app.register_blueprint(reset_blueprint, url_prefix='/')
-        
-    return app
+    app.register_blueprint(api_v1)        
+    app.run()

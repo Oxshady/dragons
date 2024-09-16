@@ -1,4 +1,4 @@
-from backend.models.base_model import BaseModel, base
+from models.base_model import BaseModel, base
 from sqlalchemy import String
 from sqlalchemy.orm import Mapped, mapped_column, relationship, backref
 from typing import List
@@ -6,8 +6,7 @@ from bcrypt import hashpw, gensalt,checkpw
 from time import time
 import jwt
 from flask import current_app
-from backend import db
-
+from models import db
 class User(BaseModel, base):
     """User class"""
 
