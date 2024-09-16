@@ -10,7 +10,7 @@ from models import db
 class Favorite(BaseModel, base):
     """Favorite class"""
 
-    __tablename__ = "faavorites"
+    __tablename__ = "favorites"
     movie_id: Mapped[int] = mapped_column(Integer, nullable=False)
     rate: Mapped["int"] = mapped_column(Integer, nullable=False)
     language: Mapped["str"] = mapped_column(String(30), nullable=False)
