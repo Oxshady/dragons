@@ -28,7 +28,7 @@ def create_app():
     app.config['MAIL_USERNAME'] = os.getenv('MAIL_USERNAME')
     app.config['MAIL_PASSWORD'] = os.getenv('MAIL_PASSWORD')
     app.config['MAIL_DEFAULT_SENDER'] = os.getenv('MAIL_DEFAULT_SENDER')
-    os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"  #! Allow HTTP requests, not HTTPS
+    os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
 
     session.init_app(app)
     mail.init_app(app)
