@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useMutation } from "@tanstack/react-query";
 import { fetchUsers, logoutUser } from "../../util/http";
@@ -12,14 +12,16 @@ function Login() {
     const dispatch = useDispatch();
     
     // These values should come from Redux or any other state management
-    const isAdmin = useSelector(state => state.auth.isAdmin);
-    const isAuth = useSelector(state => state.auth.isAuthenticated);
+    
+    // const isAuth = useSelector(state => state.auth.isAuthenticated);
 
     const loginMutation = useMutation({
-        mutationFn: (userData) => fetchUsers(userData, dispatch),
+        mutationFn: (userData) => fetchUsers(userData),
         onSuccess: (data) => {
             if (data.message === 'Login successful!') {
                 console.log('Login successful');
+                dispatch(authActions.login());
+                localStorage.setItem('isAuthenticated', true);
                 navigate("/");
             } else {
                 setErrors({ email: data.error });
@@ -30,19 +32,19 @@ function Login() {
         }
     });
 
-    const mutateLogout = useMutation({
-        mutationFn: logoutUser,
-        onSuccess: () => {
-            console.log('Logout successful');
-            dispatch(authActions.logout());
-            localStorage.removeItem('isAuthenticated');
-            navigate('/login');
-        },
-        onError: (error) => {
-            console.error('Logout failed:', error);
-            alert('Failed to log out. Please try again.');
-        }
-    });
+    // const mutateLogout = useMutation({
+    //     mutationFn: logoutUser,
+    //     onSuccess: () => {
+    //         console.log('Logout successful');
+    //         dispatch(authActions.logout());
+    //         localStorage.removeItem('isAuthenticated');
+    //         navigate('/login');
+    //     },
+    //     onError: (error) => {
+    //         console.error('Logout failed:', error);
+    //         alert('Failed to log out. Please try again.');
+    //     }
+    // });
 
     function validateLogin(data) {
         let formErrors = {};
@@ -67,15 +69,9 @@ function Login() {
             setErrors(formErrors);
             return;
         }
-
-        if (isAdmin || isAuth) {
-            mutateLogout.mutate();
-            console.log('********************************');
-        } else {
-            loginMutation.mutate(data);
-            console.log('----------------------------------');
-
-        }
+        console.log("data login",data);
+        
+        loginMutation.mutate(data);
     }
 
     return (
@@ -108,7 +104,7 @@ function Login() {
                 </div>
                 <div>
                     <span className="login__signup">
-                        Don't have an account? <Link to="../register" id="sign-up">Sign Up</Link>
+                        Dont have an account? <Link to="../register" id="sign-up">Sign Up</Link>
                     </span>
                     <button type="submit" className="login__button button">Log In</button>
                 </div>
