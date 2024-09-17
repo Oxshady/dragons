@@ -1,23 +1,22 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import Recommendation from './Recommendation';
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import Recommendation from "./Recommendation";
 
 function Details() {
   const { movieId } = useParams(); // Get the movieId from the URL
-  const [movi, setMovi] = useState([]);
+  const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-   // Fetch the movie details using the movieId
     const fetchMovieDetails = async () => {
+      const idFetch = movieId; // Use the movieId from URL
+
       try {
-        const response = await fetch(
-          `http://localhost:5000/api/v1/movies?movieid=${movieId}`
-        );
+        const response = await fetch(`http://localhost:5000/api/v1/movies?movieid=${idFetch}`);
         if (!response.ok) throw new Error('Failed to fetch movie details');
         const data = await response.json();
-        setMovi(data); // Set the movie data in state
+        setMovie(data[0]); // Assuming data is an array and you want the first item
         setLoading(false);
       } catch (err) {
         setError(err.message);
@@ -27,12 +26,10 @@ function Details() {
 
     fetchMovieDetails();
   }, [movieId]);
-  console.log(movi);
-console.log(movi);
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
-const movie = movi[0];
-console.log(movie);
+
   return (
     <>
       {movie && (
@@ -96,10 +93,22 @@ console.log(movie);
 }
 
 export default Details;
-/*
- {movie.genres.map((genre, index) => (
-                    <a key={index} href="">
-                      {genre}
-                    </a>
-                  ))}
-*/
+
+
+// src/loaders/BookLoader.js
+export async function Loader({ params }) {
+  const { movieId } = params;
+  const api_url = "http://localhost:5000/api/v1/movies?movieid=";
+
+  try {
+    const response = await fetch(`${api_url}${movieId}`);
+    if (!response.ok) {
+      throw new Error('Failed to fetch movie details');
+    }
+    const data = await response.json();
+    return { movie: data[0] }; // Assuming data is an array and you want the first item
+  } catch (error) {
+    throw new Error(error.message);
+  }
+}
+

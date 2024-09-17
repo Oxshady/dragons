@@ -1,7 +1,51 @@
+import { useMutation } from '@tanstack/react-query';
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom'
+import { logoutUser } from '../util/http';
+import { authActions } from '../store/auth';
+
+
+
+
 
 function Header() {
+    const isAuth = useSelector(state => state.auth.isAuthenticated);
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+
+
+    function handleOpen() {
+        document.querySelector(".nav-list").classList.toggle("open");
+      }
+
+    const mutation = useMutation({
+      mutationFn: logoutUser,
+      onSuccess: () => {
+
+          console.log('Logout successful');
+          // Dispatch Redux action to update auth state
+          dispatch(authActions.logout());
+
+          // Remove the isAuth value from local storage
+          localStorage.removeItem('isAuthenticated');
+          // dispatch(clearUserId());
+          localStorage.removeItem('user_id');
+          navigate('/login');
+      },
+      onError: (error) => {
+          console.error('Logout failed:', error);
+          alert('Failed to log out. Please try again.');
+      }
+  });
+
+
+    const handleLogout = () => { 
+      dispatch(authActions.logout());
+
+      mutation.mutate();
+
+    }
     return (
       <>
         <header>
@@ -46,11 +90,18 @@ function Header() {
                   <a href="">survey</a>
                 </li>
               </Link>
-              <Link to="/login">
-                <button className="btn">SIGN IN</button>
-              </Link>
+              {isAuth && (
+                // <Link to="/login">
+                  <button className="btn" onClick={handleLogout}>LOG OUT</button>
+                // </Link>
+              )}
+              {!isAuth && (
+                <Link to="/register">
+                  <button className="btn">SIGN UP</button>
+                </Link>
+              )}
             </ul>
-            <div className="hamburger">
+            <div className="hamburger" onClick={handleOpen}>
               <div className="line" />
               <div className="line" />
             </div>

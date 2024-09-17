@@ -1,27 +1,36 @@
-import React, { useEffect, useState } from "react";
-import Movie from"../Movie.jsx"
+import React from "react";
+import { useLocation } from "react-router-dom";
+import Movie from "../Movie.jsx";
 
-function SurveyRecommendation(props ) {
-  const movies = props.elements;
-  console.log("************************");
-  console.log(props);
-  console.log("**************************");
+function SurveyRecommendation() {
+  const location = useLocation();
+  const { recommendations } = location.state || { recommendations: [] };
+  
+
+  // Print the recommendations for debugging
+  console.log("Recommendations data:", recommendations);
+
   return (
     <section className="top-movie same">
       <div className="header">
-        <small>survey resutls</small>
-        <h4>Here is the Recommendatoins based on the questions u answerd</h4>
+        <small>Survey Results</small>
+        <h4>Here are the recommendations based on the questions you answered</h4>
       </div>
       <div className="top-movie-main">
         <div className="movie-card want-to-watch">
           <ul className="wrapper want-to-watch-wrapper">
-            {movies.map((movie, index) => (
-              <Movie key={movie.movieid} movie={movie} />
-            ))}
+            {recommendations.length > 0 ? (
+              recommendations.map((movie, index) => (
+                <Movie key={movie.movieid || index} movie={movie} />
+              ))
+            ) : (
+              <li>No movie recommendations available.</li>
+            )}
           </ul>
         </div>
       </div>
     </section>
   );
 }
+
 export default SurveyRecommendation;
