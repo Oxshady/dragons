@@ -862,6 +862,10 @@ footer .footer-top{
       border-bottom: 1px solid hsla(0, 0%, 100%, 0.1);
       padding: 0px 25px 20px 20px;
   }
+  .nav-list.open {
+    left: 0;
+    transition: 2s ease-in-out;
+  }
   .nav-list .home{
       margin-top: 1rem;
       border-top: 1px solid hsla(0, 0%, 100%, 0.1);
