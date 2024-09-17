@@ -40,11 +40,11 @@ function Signup() {
         if (!data.last_name) formErrors.last_name = "Last name is required";
 
         // Validate phoneNumber
-        if (!data.phoneNumber) {
-            formErrors.phoneNumber = "Phone number is required";
-        } else if (!/^\d{10}$/.test(data.phoneNumber)) {
-            formErrors.phoneNumber = "Phone number must be 10 digits";
-        }
+        // if (!data.phoneNumber) {
+        //     formErrors.phoneNumber = "Phone number is required";
+        // } else if (!/^\d{10}$/.test(data.phoneNumber)) {
+        //     formErrors.phoneNumber = "Phone number must be 10 digits";
+        // }
 
         // Validate address
         if (!data.address) formErrors.address = "Address is required";
