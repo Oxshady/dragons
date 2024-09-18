@@ -15,6 +15,7 @@ echo '{
 echo "MYSQL_USER=$1" >> ./backend/.env
 echo "MYSQL_PWD=$2" >> ./backend/.env
 pip3 install -r requirments.txt
+echo "enter your mysql password again to setup the database"
 sudo mysql -u $1 -p < setup_mysql.sql
 cd backend
 python3 -m api.v1.app &
