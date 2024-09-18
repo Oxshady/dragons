@@ -56,6 +56,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ## Authors
 
 - **Shadi Mahmoud** - Backend Developer - [GitHub Profile](https://github.com/Oxshady)
+- Ahmed Harhash - backend Developer - [GitHub Profile](https://github.com/ah0048)
 - **Youssef Ahmed** - Backend Developer - [GitHub Profile](https://github.com/youssef3092004)
 - **Karem Hany** - Backend Developer - [GitHub Profile](https://github.com/K-a-r-e-e-m)
 - **Sondoss Essam** - Frontend Developer - [GitHub Profile](https://github.com/sondosEssam)
