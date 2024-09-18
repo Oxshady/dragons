@@ -36,15 +36,13 @@ The system allows users to input their movie preferences in natural language. Th
     python -m venv venv
     source venv/bin/activate  # On Windows use `venv\Scripts\activate`
     ```
-    ```sh
-    mysql -u root -p < setup_mysql.sql
-    ```
+
 
 5. **Run the application:**
 
     ```sh
     chmod +x run.sh
-    ./run.sh
+    ./run.sh your_mysql_username your_mysql_password
     ```
 
 ## Contributing

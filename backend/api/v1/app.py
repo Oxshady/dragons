@@ -1,3 +1,5 @@
+from dotenv import load_dotenv
+load_dotenv()
 from models import db
 from flask import jsonify, request, session
 from models.users import User
@@ -5,13 +7,11 @@ from flask import Flask
 from api.v1.views import api_v1
 from flask_cors import CORS
 import os
-from dotenv import load_dotenv
 from datetime import timedelta
 from flask import Flask
 from flask_cors import CORS
 from models import mail
 from models import session
-load_dotenv()
 app = Flask(__name__)
 CORS(app, supports_credentials=True, resources={r"/*": {"origins": "*"}})
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')

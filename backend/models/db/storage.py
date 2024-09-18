@@ -5,6 +5,9 @@ from models.watch_list import WatchList
 from models.watched_before import WatchedBefore
 from models.favorite import Favorite
 from models.users import User
+import os
+from dotenv import load_dotenv
+load_dotenv()
 mapp = {
     "User": User,
     "WatchList": WatchList,
@@ -18,8 +21,8 @@ class DBstorage:
 
     def __init__(self):
         db = "dragons"
-        user = "root"
-        passwd = ""
+        user = os.getenv("MYSQL_USER")
+        passwd = os.getenv("MYSQL_PWD")
         host = "localhost"
         self.__engine = create_engine(
             "mysql+mysqldb://{}:{}@{}/{}".format(user, passwd, host, db),
