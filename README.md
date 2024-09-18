@@ -8,21 +8,6 @@ This project is a movie recommendation system that leverages the OpenAI ChatGPT 
 
 The system allows users to input their movie preferences in natural language. The backend processes these inputs using the ChatGPT API and retrieves relevant movie data from the MovieDB API. The results are then displayed to the user with detailed information about each recommended movie.
 
-## API Usage
-
-### The MovieDB API
-**Purpose**: Used to retrieve movie data based on user preferences.
-- **Endpoint**: `https://api.themoviedb.org/3/search/movie`
-- **Input**: Parsed data from ChatGPT API (e.g., genres, popularity, ratings).
-- **Output**: JSON data containing movie recommendations, including titles, descriptions, ratings, and release dates.
-- **Documentation**: [MovieDB API Docs](https://developers.themoviedb.org/3)
-
-### OpenAI ChatGPT API
-**Purpose**: Parses natural language queries to extract user preferences.
-- **Endpoint**: `https://api.openai.com/v1/engines/davinci-codex/completions`
-- **Input**: User's natural language input.
-- **Output**: Parsed data including genres, popularity, and ratings.
-- **Documentation**: [OpenAI API Docs](https://beta.openai.com/docs/)
 
 ## Technical Details
 
@@ -31,18 +16,10 @@ The system allows users to input their movie preferences in natural language. Th
   - Handles API communication and logic processing.
   - Routes for receiving user input and delivering movie recommendations.
 - **APIs**:
-  - **OpenAI ChatGPT API**: Parses natural language queries.
+  - **Gemini Api API**: Parses natural language queries.
   - **MovieDB API**: Fetches movie details.
 - **Database**: MySQL
-  - User preferences and search histories can be stored and retrieved to improve recommendation quality.
-  - Example Database Schema:
-    ```sql
-    CREATE TABLE user_preferences (
-      id INT AUTO_INCREMENT PRIMARY KEY,
-      user_id INT,
-      preferences TEXT
-    );
-    ```
+  - User preferences and search histories can be stored and retrieved to improve recommendation 
 
 ### Frontend
 - **Framework**: Vite
@@ -51,9 +28,7 @@ The system allows users to input their movie preferences in natural language. Th
   - **React**: For building user interfaces.
   - **Axios**: For making HTTP requests to the backend.
 
-## Setup Instructions
-
-### Backend
+## Setup Instructions 
 
 1. **Create a virtual environment and activate it:**
 
