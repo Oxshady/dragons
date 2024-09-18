@@ -1,9 +1,11 @@
 # Movie Recommendation System
 
 ## Overview
+
 This project is a movie recommendation system that leverages the OpenAI ChatGPT API to parse user preferences and the MovieDB API to fetch movie details. The backend is built using Flask, and the frontend is developed with modern web technologies.
 
 ## Functionality
+
 The system allows users to input their movie preferences in natural language. The backend processes these inputs using the ChatGPT API and retrieves relevant movie data from the MovieDB API. The results are then displayed to the user with detailed information about each recommended movie.
 
 ## API Usage
@@ -52,49 +54,34 @@ The system allows users to input their movie preferences in natural language. Th
 ## Setup Instructions
 
 ### Backend
-1. Navigate to the `backend` directory:
+
+1. **Create a virtual environment and activate it:**
+
     ```sh
-    cd backend
+    python -m venv venv
+    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
     ```
-2. Create a virtual environment and activate it:
-    ```sh
-    python -m venv env
-    source env/bin/activate  # On Windows use `env\Scripts\activate`
-    ```
-3. Install the required dependencies:
-    ```sh
-    pip install -r requirements.txt
-    ```
-4. Set up the MySQL database using the provided script:
     ```sh
     mysql -u root -p < setup_mysql.sql
     ```
-5. Run the backend server:
-    ```sh
-    python run_backend.py
-    ```
 
-### Frontend
-1. Navigate to the `frontend` directory:
+5. **Run the application:**
+
     ```sh
-    cd frontend
-    ```
-2. Install the required dependencies:
-    ```sh
-    npm install
-    ```
-3. Run the frontend development server:
-    ```sh
-    npm run dev
+    chmod +x run.sh
+    ./run.sh
     ```
 
 ## Contributing
+
 Contributions are welcome! Please read the [contributing guidelines](CONTRIBUTING.md) for more details.
 
 ## License
+
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
 
 ## Authors
+
 - **Shadi Mahmoud** - Backend Developer - [GitHub Profile](https://github.com/Oxshady)
 - **Youssef Ahmed** - Backend Developer - [GitHub Profile](https://github.com/youssef3092004)
 - **Karem Hany** - Backend Developer - [GitHub Profile](https://github.com/K-a-r-e-e-m)
