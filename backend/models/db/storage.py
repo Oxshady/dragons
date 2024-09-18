@@ -18,8 +18,8 @@ class DBstorage:
 
     def __init__(self):
         db = "dragons"
-        user = "shadi"
-        passwd = "1"
+        user = "root"
+        passwd = ""
         host = "localhost"
         self.__engine = create_engine(
             "mysql+mysqldb://{}:{}@{}/{}".format(user, passwd, host, db),
