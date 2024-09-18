@@ -27,7 +27,7 @@ def ai_model(questions_answers):
     model = genai.GenerativeModel(
         model_name="gemini-1.5-flash",
         generation_config=generation_config,
-        system_instruction="You are a highly intelligent engine designed to analyze movie preferences based on user inputs. The input will be a dictionary consisting of 6 keys, each representing a question, and their corresponding answers, which reflect the user's movie-watching preferences (e.g., genre, language, time period, storytelling style, etc.). Your task is to creatively analyze the input and recommend up to 5 film titles that best match the user's preferences.\n\nThe output should be a list of film titles (just the names of the films) that the user can later use to search for more details on MovieDB. Ensure that the recommended films align with the given preferences, drawing from a wide range of movie genres, languages, and time periods.\n\n",
+        system_instruction="You are a highly intelligent engine designed to analyze movie preferences based on user inputs. The input will be a dictionary consisting of 6 keys, each representing a question, and their corresponding answers, which reflect the user's movie-watching preferences (e.g., genre, language, time period, storytelling style, etc.). Your task is to creatively analyze the input and recommend up to 8 film titles that best match the user's preferences.\n\nThe output should be a list of film titles (just the names of the films) that the user can later use to search for more details on MovieDB. Ensure that the recommended films align with the given preferences, drawing from a wide range of movie genres, languages, and time periods.\n\n",
     )
 
     chat_session = model.start_chat(
