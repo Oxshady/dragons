@@ -2,11 +2,11 @@
 
 ## Overview
 
-This project is a movie recommendation system that leverages the OpenAI ChatGPT API to parse user preferences and the MovieDB API to fetch movie details. The backend is built using Flask, and the frontend is developed with modern web technologies.
+This project is a movie recommendation system that leverages the Gemini API to parse user preferences and the MovieDB API to fetch movie details. The backend is built using Flask, and the frontend is developed with modern web technologies.
 
 ## Functionality
 
-The system allows users to input their movie preferences in natural language. The backend processes these inputs using the ChatGPT API and retrieves relevant movie data from the MovieDB API. The results are then displayed to the user with detailed information about each recommended movie.
+The system allows users to input their movie preferences in a Survey. The backend processes these inputs using the Gemini API and retrieves relevant movie data from the MovieDB API. The results are then displayed to the user with detailed information about each recommended movie.
 
 
 ## Technical Details
@@ -45,18 +45,10 @@ The system allows users to input their movie preferences in natural language. Th
     ./run.sh your_mysql_username your_mysql_password
     ```
 
-## Contributing
-
-Contributions are welcome! Please read the [contributing guidelines](CONTRIBUTING.md) for more details.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
-
 ## Authors
 
 - **Shadi Mahmoud** - Backend Developer - [GitHub Profile](https://github.com/Oxshady)
-- Ahmed Harhash - backend Developer - [GitHub Profile](https://github.com/ah0048)
+- **Ahmed Harhash** - backend Developer - [GitHub Profile](https://github.com/ah0048)
 - **Youssef Ahmed** - Backend Developer - [GitHub Profile](https://github.com/youssef3092004)
 - **Karem Hany** - Backend Developer - [GitHub Profile](https://github.com/K-a-r-e-e-m)
 - **Sondoss Essam** - Frontend Developer - [GitHub Profile](https://github.com/sondosEssam)
