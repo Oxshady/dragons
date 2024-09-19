@@ -54,7 +54,7 @@ The system allows users to input their movie preferences in a Survey. The backen
 
   ```sh
   chmod +x run.sh
-  ./run.sh
+  sudo ./run.sh
   ```
 
 And that's it , Enjoy!
