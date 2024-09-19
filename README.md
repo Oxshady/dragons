@@ -56,6 +56,8 @@ The system allows users to input their movie preferences in a Survey. The backen
     ./run.sh
     ```
 
+And that's it , Enjoy!
+
 ## Authors
 
 - **Shadi Mahmoud** - Backend Developer - [GitHub Profile](https://github.com/Oxshady)
