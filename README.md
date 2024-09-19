@@ -1,5 +1,6 @@
 # Movie Recommendation System
 
+
 ## Overview
 
 This project is a movie recommendation system that leverages the Gemini API to parse user preferences and the MovieDB API to fetch movie details. The backend is built using Flask, and the frontend is developed with modern web technologies.
