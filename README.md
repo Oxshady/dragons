@@ -33,10 +33,10 @@ The system allows users to input their movie preferences in a Survey. The backen
 
 1. **Create a virtual environment and activate it:**
 
-    ```sh
-    python -m venv venv
-    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
-    ```
+  ```sh
+  python -m venv venv
+  source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+  ```
 
 
 2. **Database setup**
@@ -52,10 +52,10 @@ The system allows users to input their movie preferences in a Survey. The backen
 
   at the root of the repo run:
 
-    ```sh
-    chmod +x run.sh
-    ./run.sh
-    ```
+  ```sh
+  chmod +x run.sh
+  ./run.sh
+  ```
 
 And that's it , Enjoy!
 
