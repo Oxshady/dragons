@@ -38,11 +38,22 @@ The system allows users to input their movie preferences in a Survey. The backen
     ```
 
 
-5. **Run the application:**
+2. **Database setup**
+
+  Ensure MySQL is installed and running on your system and run this command at the root of the repo
+  
+  ```sh
+  cat setup_mysql.sql | mysql -u root -p
+  ```
+  and enter the password for the root user on your mysql if any
+
+3. **Run the application**
+
+  at the root of the repo run:
 
     ```sh
     chmod +x run.sh
-    ./run.sh your_mysql_username your_mysql_password
+    ./run.sh
     ```
 
 ## Authors
