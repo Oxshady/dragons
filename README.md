@@ -31,15 +31,9 @@ The system allows users to input their movie preferences in a Survey. The backen
 
 ## Setup Instructions 
 
-1. **Create a virtual environment and activate it:**
-
-  ```sh
-  python -m venv venv
-  source venv/bin/activate  # On Windows use `venv\Scripts\activate`
-  ```
 
 
-2. **Database setup**
+1. **Database setup**
 
   Ensure MySQL is installed and running on your system and run this command at the root of the repo
   
@@ -48,7 +42,7 @@ The system allows users to input their movie preferences in a Survey. The backen
   ```
   and enter the password for the root user on your mysql if any
 
-3. **Run the application**
+2. **Run the application**
 
   at the root of the repo run:
 
