@@ -20,7 +20,7 @@ def recommend_by_id(movie_id):
     if not results:
         return jsonify({"error": "No results found"}), 404
     
-    for result in results[:10]:
+    for result in results[:8]:
         img = "https://image.tmdb.org/t/p/original/{}".format(result.get('poster_path'))
         data.append({
             'movieid': result.get('id'),

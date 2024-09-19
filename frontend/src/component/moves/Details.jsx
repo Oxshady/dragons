@@ -13,7 +13,7 @@ function Details() {
       const idFetch = movieId; // Use the movieId from URL
 
       try {
-        const response = await fetch(`http://localhost:5000/api/v1/movies?movieid=${idFetch}`);
+        const response = await fetch(`http://localhost:5000/api/v1/movies/details?movieid=${idFetch}`);
         if (!response.ok) throw new Error('Failed to fetch movie details');
         const data = await response.json();
         setMovie(data[0]); // Assuming data is an array and you want the first item

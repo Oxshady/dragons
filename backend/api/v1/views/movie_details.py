@@ -35,7 +35,7 @@ def find_by_id(movie_id):
     })
     return data
 
-@api_v1.route('/movies', methods=['GET'], strict_slashes=False)
+@api_v1.route('/movies/details', methods=['GET'], strict_slashes=False)
 def get_by_id():
     movie_id = request.args.get('movieid')
     if not movie_id:

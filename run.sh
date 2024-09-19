@@ -12,6 +12,26 @@ echo '{
         ]
     }
 }'> ./backend/api/v1/.client_secret.json
+
+PID=$(sudo lsof -t -i :5000)
+# Check if a PID was found on port 5000
+if [ -n "$PID" ]; then
+  echo "Killing process with PID $PID on port 5000"
+  sudo kill -9 $PID
+else
+  echo "No process is using port 5000"
+fi
+
+PID=$(sudo lsof -t -i :5173)
+
+# Check if a PID was found on port 5173
+if [ -n "$PID" ]; then
+  echo "Killing process with PID $PID on port 5173"
+  sudo kill -9 $PID
+else
+  echo "No process is using port 5173"
+fi
+
 pip3 install -r requirments.txt
 cd backend
 python3 -m api.v1.app &
