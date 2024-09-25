@@ -12,9 +12,9 @@ function Want_To_Watch() {
       .then((res) => res.json())
       .then((data) => setMovies(data));
   }, []);
-console.log(movies);
+// console.log(movies);
   useEffect(() => {
-    console.log(movies);
+    // console.log(movies);
   }, [movies]);
 
   function handleOnDragEnd(result) {

@@ -3,6 +3,7 @@ import { useMutation } from '@tanstack/react-query';
 
 import { useNavigate } from "react-router-dom";
 import "./css/Survey.css";
+import LoadingIndicator from "../../UI/LoadingIndicator";
 
 function Survey() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -51,6 +52,7 @@ function Survey() {
     },
     onSuccess: (data) => {
       console.log('Response from server:', data);
+      console.log("fenish")
       navigate('/recommendations', { state: { recommendations: data } });
     },
     onError: (error) => {
@@ -85,6 +87,9 @@ function Survey() {
   const handleSubmit = () => {
     mutation.mutate(answers);
   };
+  if(mutation.isPending) {
+    return <LoadingIndicator />;
+  }
 
   return (
     <div className="survey-container">
